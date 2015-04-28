@@ -13,7 +13,7 @@
 							<th>PAY METHOD</th>
 							<th>DATE</th>
 							<th>TOTAL AMOUNT</th>
-							<th>PRODUCT RATING</th>
+							<th>DETAILS</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -23,10 +23,7 @@
 							<td>{{ order.date }}</td>
 							<td>{{ order.totalAmount }}</td>
 							<td>
-								<input id="input-2d" class="rating" min="0" max="5" step="1" data-size="sm"
-									   data-symbol="&#xf0fc;" data-glyphicon="false"
-									   data-rating-class="rating-fa" data-default-caption="{rating} drinks"
-									   data-star-captions="{}">
+							    <a href="#/order-details" ng-click="selectOrder(order.id)"><span class="glyphicon glyphicon-list-alt"></span></a>
 							</td>
 						</tr>
 					</tbody>

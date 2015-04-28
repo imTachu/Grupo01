@@ -7,7 +7,8 @@
     'use strict';
 
     var stampidia = angular.module('stampidia', [ 'ngCookies', 'ngRoute', 'ngResource', 'stampidia.services', 'stampidia.controllers','highcharts-ng','ngFileUpload' ]);
-    var stampidiaControllers = angular.module('stampidia.controllers', []);
+    var stampidiaControllers = angular.module('stampidia.controllers', ['ui.bootstrap','dialogs']);
+    
     var stampidiaServices = angular.module('stampidia.services', []);
 
     var Configuration = function($routeProvider, $compileProvider, $locationProvider, $httpProvider) {
@@ -69,6 +70,9 @@
 	    controller : 'CartController'
 	}).when('/myOrders',{
 	    templateUrl : 'partials/orders/order.html',
+	    controller : 'OrderController'
+	}).when('/order-details',{
+	    templateUrl : 'partials/orders/order_detail.html',
 	    controller : 'OrderController'
 	}).otherwise({
 	    redirectTo : '/products'
