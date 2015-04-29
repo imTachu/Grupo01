@@ -45,4 +45,26 @@ public class RateDesignsController {
         return resultado;
     }
 
+	@RequestMapping(value="/design/rate/{id}",method= RequestMethod.GET)
+    public Resultado rateDesigns(
+            @PathVariable(value="id") Integer id){
+        Resultado resultado = new Resultado();
+
+        if(id != null){
+
+            StmpStampRating newRating = ratingService.getRatingById(id);
+
+            if(newRating != null){
+                resultado.setResultado(newRating);
+                resultado.setEstado(new Status(EStatusType.OK, Constantes.SUCCESS_RESULT.getDescription()));
+            }else {
+                resultado.setEstado(new Status(EStatusType.ERROR, Constantes.ERROR_RESULT.getDescription()));
+            }
+
+        }else {
+            resultado.setEstado(new Status(EStatusType.ERROR, Constantes.INVALID_PARAMS_RESULT.getDescription()));
+        }
+
+        return resultado;
+    }
 }
