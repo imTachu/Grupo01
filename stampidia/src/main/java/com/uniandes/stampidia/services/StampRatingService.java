@@ -29,4 +29,9 @@ public class StampRatingService {
 		return stampratingRepository.save(rating);
 	}
 	
+	public StmpStampRating getRatingById(Integer id){
+		return stampratingRepository.findOne(id);
+	}
+
+	
 }
