@@ -19,4 +19,8 @@ public class ShirtRatingService {
 	public StmpShirtRating createShirtRating(StmpShirtRating rating){
 		return shirtRatingRepository.save(rating);
 	}
+	
+	public List<StmpShirtRating> findAll(){
+		return (List<StmpShirtRating>)shirtRatingRepository.findAll();
+	}
 }
