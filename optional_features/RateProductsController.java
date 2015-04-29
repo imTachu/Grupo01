@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 
 @RestController
 @RequestMapping(value="/rest")
@@ -43,4 +44,22 @@ public class RateProductsController {
         return resultado;
     }
 
+	@RequestMapping(value="/product/rates",method= RequestMethod.GET)
+    public Resultado rateProducts(){
+        Resultado resultado = new Resultado();
+
+        
+
+            List<StmpShirtRating> ratings = ratingService.findAll();
+
+            if(ratings != null){
+                resultado.setResultado(ratings);
+                resultado.setEstado(new Status(EStatusType.OK, Constantes.SUCCESS_RESULT.getDescription()));
+            }else {
+                resultado.setEstado(new Status(EStatusType.ERROR, Constantes.ERROR_RESULT.getDescription()));
+            }
+
+
+        return resultado;
+    }
 }
